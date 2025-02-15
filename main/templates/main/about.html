@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}About - My GF's Site{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <!-- Main Heading -->
+            <h2 class="display-4 mb-4 text-primary">About Me</h2>
+            <p class="lead text-muted">A little bit about the love behind this website...</p>
+
+            <!-- Romantic Heart Image -->
+            <div class="my-4">
+
+                {% if about_img and about_img.about_image %}
+                    <img src="{{ about_img.about_image.url }}" alt="Her Image" class="img-fluid rounded-circle shadow-lg"
+                         style="max-width: 250px; border: 5px solid #ff77a9;">
+                {% else %}
+                    <p class="text-muted">No image available</p>
+                {% endif %}
+            </div>
+
+            <!-- Romantic Quote -->
+            <div class="mt-4">
+                <p class="text-center font-italic text-dark" style="font-size: 1.2rem;">
+                    "Love is not just a feeling; it's the spark that brings everything to life, even the smallest moments."
+                </p>
+            </div>
+
+            <!-- Description Section -->
+            <div class="mt-4">
+                <p class="lead text-dark" style="font-size: 1.1rem;">
+                    Hello, I'm Omar, and this is a little corner of the internet where I can share my thoughts, my passions,
+                    and the journey of love that has led me to create this site. This space is not just a personal blog—it's a place
+                    to express what really matters in life: the moments we cherish, the experiences we share, and the love that makes everything worth it.
+                </p>
+
+                <p class="text-dark" style="font-size: 1.1rem;">
+                    I created this site to connect, share my heart with the world, and remind you that no matter where we are,
+                    love is always in the air. ❤️
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Welcome to My GF's Site{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-primary fw-bold">Welcome to My Love's Personal Space 💖</h1>
+                <p class="lead text-muted">
+                    Built with love by Omar, a Computer Science student at Georgia Tech, using Django and Bootstrap.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-5 align-items-center">
+            <!-- Image Section -->
+            <div class="col-lg-5 d-flex justify-content-center">
+                {% for info in her_info %}
+                    {% if info.image %}
+                        <img src="{{ info.image.url }}" alt="Her Image"
+                            class="img-fluid rounded-circle shadow-lg"
+                            style="max-width: 320px; border: 6px solid #ff77a9;">
+                    {% else %}
+                        <p class="text-muted">No image available</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <!-- Description Section -->
+            <div class="col-lg-7">
+                {% for info in her_info %}
+                    <div class="card shadow-lg border-0 p-4"
+                        style="background: linear-gradient(135deg, #ffdde1, #ee9ca7); border-radius: 20px;">
+                        <div class="card-body text-center">
+                            <h3 class="card-title fw-bold text-dark">About Her ❤️</h3>
+                            <p class="card-text text-dark" style="font-size: 1.2rem;">
+                                {{ info.description }}
+                            </p>
+                            <small class="text-muted">Posted on {{ info.date_created|date:"F j, Y" }}</small>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
